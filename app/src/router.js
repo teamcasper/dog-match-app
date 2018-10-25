@@ -9,8 +9,8 @@ export default new VueRouter({
   routes: [
     { path: '/', component: Dash },
     { path: '/auth', component: Auth },
-    { path: '/dog-post', component: DogPost },
-    { path: '/dog-search', component: DogSearch },
+    { path: '/dogs/post', component: DogPost },
+    { path: '/dogs/search', component: DogSearch },
     { path: '*', redirect: '/' }
   ]
 });

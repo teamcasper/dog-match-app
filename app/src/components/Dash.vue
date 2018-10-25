@@ -3,8 +3,8 @@
     <h1>Dashboard</h1>
     <br>
     <div>
-      <router-link to="/post">Post A Dog</router-link>
-      <router-link to="/search">Search For Dogs</router-link>
+      <router-link to="/dogs/post">Post A Dog</router-link>
+      <router-link to="/dogs/search">Search For Dogs</router-link>
     </div>
     <router-view></router-view>
   </div>  
@@ -14,8 +14,7 @@
 
 export default {
   props: {
-    user: Object,
-    handleNext: Function
+    user: String
   }
 };
 

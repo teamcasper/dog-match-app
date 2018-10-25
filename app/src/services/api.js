@@ -1,5 +1,6 @@
 const URL = '/api';
 const USERS_URL = `${URL}/users`;
+const DOGS_URL = `${URL}/dogs`;
 
 function responseHandler(response) {
     if(response.ok) return response.json();
@@ -28,7 +29,7 @@ function responseHandler(response) {
     })
       .then(responseHandler)
       .then(res => {
-        storeToken(res.body.token);
+        storeToken(res.token);
         return res.body;
       });
   }
@@ -41,8 +42,8 @@ function responseHandler(response) {
     })
       .then(responseHandler)
       .then(res => {
-        storeToken(res.body.token);
-        return res.body;
+        storeToken(res.token);
+        return res.token;
       });
   }
   
@@ -55,4 +56,22 @@ function responseHandler(response) {
     if(!token) {
       return null;
     }
+    else return token;
+  }
+
+  export function addDog(name, description, weight, price, photoUrl, gender, spayedOrNeutered) {
+      return fetch(DOGS_URL, {
+          method: 'POST',
+          headers: getHeaders(),
+          body: JSON.stringify({
+            name: name,
+            description: description,
+            weight: weight,
+            price: price,
+            photoUrl: photoUrl,
+            gender: gender,
+            spayedOrNeutered: spayedOrNeutered
+          })
+      })
+        .then(responseHandler);
   }
