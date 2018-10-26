@@ -5,6 +5,9 @@
              <div>Name: 
                 <input type="text" name="name"  v-model="name">
             </div>
+             <div>Breed: 
+                <input type="text" name="breed"  v-model="breed">
+            </div>
              <div>Description: 
                 <input type="text" name="description"  v-model="description">
             </div>
@@ -56,12 +59,13 @@ export default {
             photoUrl: '',
             gender: '',
             spayedOrNeutered: null,
-            checkedAttributes2: []
+            checkedAttributes2: [],
+            breed: ''
         };
     },
     methods: {
         handleAddDog() {
-            return addDog(this.name, this.description, this.weight, this.price, this.photoUrl, this.gender, this.spayedOrNeutered, this.checkedAttributes2)
+            return addDog(this.name, this.description, this.weight, this.price, this.photoUrl, this.gender, this.spayedOrNeutered, this.checkedAttributes2, this.breed)
         }
     }
 
