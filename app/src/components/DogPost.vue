@@ -18,12 +18,12 @@
                 <input type="text" name="photoUrl" v-model="photoUrl">
             </div>
             <div>Gender:
-                <input type="radio" name="gender" value="female" v-model="gender"> Female<br>
-                <input type="radio" name="gender" value="male" v-model="gender"> Male<br>
+                <input type="radio" name="gender" value="female" v-model="gender"> Female
+                <input type="radio" name="gender" value="male" v-model="gender"> Male
                 <input type="radio" name="gender" value="other" v-model="gender"> Other
             </div>
             <div>Is your Dog spayed or neutered? 
-                <input type="radio" name="spayedOrNeutered" value="true" v-model="spayedOrNeutered"> Yes<br>
+                <input type="radio" name="spayedOrNeutered" value="true" v-model="spayedOrNeutered"> Yes
                 <input type="radio" name="spayedOrNeutered" value="false" v-model="spayedOrNeutered"> No
             </div>
             <button>Submit</button>

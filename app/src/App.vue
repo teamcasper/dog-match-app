@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <img src="http://www.barkdenver.com/files/5714/2126/5232/s5810nb9g6pio7lr.jpg">
+      <img class="banner" src="http://www.barkdenver.com/files/5714/2126/5232/s5810nb9g6pio7lr.jpg">
       <h1>Meet Your Best Friend</h1>
       <nav class="menu second">
           <input type="checkbox" id="checkbox2" />
@@ -79,6 +79,11 @@ nav {
 
 }
 
+.banner {
+  width: 100vw;
+  height: 100%;
+}
+
 #checkbox2,
 .toggle {
   display: none;
@@ -102,7 +107,7 @@ nav {
   font-size: 14px;
   padding: 16px 20px;
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   padding: 50px;
 
 }

@@ -42,13 +42,14 @@
             <button>Submit</button>
         </form>
 
-        <h3>Results:</h3>
+        <h3 v-if="dogs">Results:</h3>
         <div class="results" v-if="dogs">
             <div class="result"
                 v-for="dog in dogs"
                 :key="dog._id">
             
                 <h4>Name: {{ dog.name }}</h4>
+                <img :src="dog.photoUrl" >
                 <p>Description: {{ dog.description }}</p>
                 <p>Weight: {{ dog.weight }}</p>
                 <p>Price: {{ dog.price }}</p>
@@ -102,14 +103,45 @@ export default {
     padding: 40px;
 }
 
-.result {
+.results {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
     grid-gap: 20px;
+    margin: 30px;
 }
 
-.results {
-    margin: 20px;
-}
+    .result {
+        border: 2px solid rgb(196, 249, 255);
+        max-width: 500px;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: rgb(58, 75, 172);
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    h4 {
+        background-color: rgb(196, 249, 255);
+        padding: 10px;
+        letter-spacing: 2px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: -3px;
+    }
+
+    .last {
+        margin-bottom: 40px;
+    }
+
 
 </style>
