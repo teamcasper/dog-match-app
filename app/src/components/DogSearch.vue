@@ -49,7 +49,6 @@
                 :key="dog._id">
             
                 <h4>Name: {{ dog.name }}</h4>
-                <p v-if="dog.breed[0]">Breed: {{ dog.breed[0] }}</p>
                 <img :src="dog.photoUrl" >
                 <p>Description: {{ dog.description }}</p>
                 <p>Weight: {{ dog.weight }}</p>
