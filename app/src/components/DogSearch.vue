@@ -18,15 +18,15 @@
                 <input type="number" name="price" v-model="maxPrice">
             </div>
             <div>Gender:
-                <input type="radio" name="gender" value="female" v-model="gender"> Female<br>
-                <input type="radio" name="gender" value="male" v-model="gender"> Male<br>
+                <input type="radio" name="gender" value="female" v-model="gender"> female
+                <input type="radio" name="gender" value="male" v-model="gender"> Male
                 <input type="radio" name="gender" value="other" v-model="gender"> Other
             </div>
             <div>Spayed or Neutered:
-                <input type="radio" name="spayedOrNeutered" value="true" v-model="spayedOrNeutered"> Yes<br>
+                <input type="radio" name="spayedOrNeutered" value="true" v-model="spayedOrNeutered"> Yes
                 <input type="radio" name="spayedOrNeutered" value="false" v-model="spayedOrNeutered"> No
             </div>
-            <div>Personality Attribues:
+            <div class="personality">Personality Attribues <br><br>
                 <input type="checkbox" id="loving"  value="loving" v-model="checkedAttributes"> loving<br>
                 <input type="checkbox" id="playful"  value="playful" v-model="checkedAttributes"> playful<br>
                 <input type="checkbox" id="friendly"  value="friendly" v-model="checkedAttributes"> friendly<br>
@@ -42,9 +42,9 @@
             <button>Submit</button>
         </form>
 
-        <div v-if="dogs">
-            <h3>Results:</h3>
-            <div 
+        <h3>Results:</h3>
+        <div class="results" v-if="dogs">
+            <div class="result"
                 v-for="dog in dogs"
                 :key="dog._id">
             
@@ -70,7 +70,6 @@
 import { dogQuery, makeQueryString } from '../services/api';
 
 export default {
-
     data() {
         return {
             zip: null,
@@ -98,5 +97,19 @@ export default {
 </script>
 
 <style>
+
+.personality {
+    padding: 40px;
+}
+
+.result {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+    grid-gap: 20px;
+}
+
+.results {
+    margin: 20px;
+}
 
 </style>

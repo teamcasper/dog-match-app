@@ -1,10 +1,8 @@
 <template>
   <div v-if="user">
-    <h1>Dashboard</h1>
     <br>
     <div>
-      <router-link to="/dogs/post">Post A Dog</router-link>
-      <router-link to="/dogs/search">Search For Dogs</router-link>
+
     </div>
     <router-view></router-view>
   </div>  
