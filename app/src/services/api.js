@@ -109,7 +109,6 @@ function responseHandler(response) {
     if(gender) {
         queryString += `gender=${gender}&`;
     }
-
     if(spayedOrNeutered) {
         queryString += `spayedOrNeutered=${spayedOrNeutered}&`;
     }
