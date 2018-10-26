@@ -26,6 +26,18 @@
                 <input type="radio" name="spayedOrNeutered" value="true" v-model="spayedOrNeutered"> Yes
                 <input type="radio" name="spayedOrNeutered" value="false" v-model="spayedOrNeutered"> No
             </div>
+            <div class="personality">Personality Attribues <br><br>
+                <input type="checkbox" id="loving"  value="loving" v-model="checkedAttributes2"> loving<br>
+                <input type="checkbox" id="playful"  value="playful" v-model="checkedAttributes2"> playful<br>
+                <input type="checkbox" id="friendly"  value="friendly" v-model="checkedAttributes2"> friendly<br>
+                <input type="checkbox" id="protective"  value="protective" v-model="checkedAttributes2"> protective<br>
+                <input type="checkbox" id="calm"  value="calm" v-model="checkedAttributes2"> calm<br>
+                <input type="checkbox" id="intelligent"  value="intelligent" v-model="checkedAttributes2"> intelligent<br>
+                <input type="checkbox" id="herder"  value="herder" v-model="checkedAttributes2"> herder<br>
+                <input type="checkbox" id="anxious"  value="anxious" v-model="checkedAttributes2"> anxious<br>
+                <input type="checkbox" id="headstrong"  value="headstrong" v-model="checkedAttributes2"> headstrong<br>
+                <input type="checkbox" id="independent" value="independent" v-model="checkedAttributes2"> independent
+            </div>
             <button>Submit</button>
         </form>
     </div>
@@ -43,12 +55,13 @@ export default {
             price: null,
             photoUrl: '',
             gender: '',
-            spayedOrNeutered: null
+            spayedOrNeutered: null,
+            checkedAttributes2: []
         };
     },
     methods: {
         handleAddDog() {
-            return addDog(this.name, this.description, this.weight, this.price, this.photoUrl, this.gender, this.spayedOrNeutered)
+            return addDog(this.name, this.description, this.weight, this.price, this.photoUrl, this.gender, this.spayedOrNeutered, this.checkedAttributes2)
         }
     }
 

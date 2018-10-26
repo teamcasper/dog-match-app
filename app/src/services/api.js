@@ -59,7 +59,7 @@ function responseHandler(response) {
     else return token;
   }
 
-  export function addDog(name, description, weight, price, photoUrl, gender, spayedOrNeutered) {
+  export function addDog(name, description, weight, price, photoUrl, gender, spayedOrNeutered, personalityAttributes) {
       return fetch(DOGS_URL, {
           method: 'POST',
           headers: getHeaders(),
@@ -70,7 +70,8 @@ function responseHandler(response) {
             price: price,
             photoUrl: photoUrl,
             gender: gender,
-            spayedOrNeutered: spayedOrNeutered
+            spayedOrNeutered: spayedOrNeutered,
+            personalityAttributes: personalityAttributes
           })
       })
         .then(responseHandler);
