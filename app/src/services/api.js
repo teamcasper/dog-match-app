@@ -75,3 +75,44 @@ function responseHandler(response) {
       })
         .then(responseHandler);
   }
+
+  export function dogQuery(query) {
+      return fetch(`${DOGS_URL}${query}`, {
+          method: 'GET',
+          headers: getHeaders(),
+      })
+        .then(responseHandler);
+  }
+
+  export function makeQueryString(zip, maxWeight, minWeight, minPrice, maxPrice, gender, spayedOrNeutered) {
+    let queryString = '?';
+    if(zip) {
+        queryString += `zip=${zip}&citySearch=true&`;
+    }
+
+    if(maxWeight) {
+        queryString += `maxWeight=${maxWeight}&`;
+    }
+
+    if(minWeight) {
+        queryString += `minWeight=${minWeight}&`;
+    }
+
+    if(maxPrice) {
+        queryString += `maxPrice=${maxPrice}&`;
+    }
+
+    if(minPrice) {
+        queryString += `minPrice=${minPrice}&`;
+    }
+    
+    if(gender) {
+        queryString += `gender=${gender}&`;
+    }
+
+    if(spayedOrNeutered) {
+        queryString += `spayedOrNeutered=${spayedOrNeutered}&`;
+    }
+    
+    return queryString;
+}

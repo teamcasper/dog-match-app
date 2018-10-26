@@ -17,7 +17,7 @@
             <div>Photo URL: 
                 <input type="text" name="photoUrl" v-model="photoUrl">
             </div>
-            <div>Gender
+            <div>Gender:
                 <input type="radio" name="gender" value="female" v-model="gender"> Female<br>
                 <input type="radio" name="gender" value="male" v-model="gender"> Male<br>
                 <input type="radio" name="gender" value="other" v-model="gender"> Other
@@ -38,6 +38,7 @@ export default {
     data() {
         return {
             name: '',
+            description: '',
             weight: null,
             price: null,
             photoUrl: '',
