@@ -84,7 +84,7 @@ function responseHandler(response) {
         .then(responseHandler);
   }
 
-  export function makeQueryString(zip, maxWeight, minWeight, minPrice, maxPrice, gender, spayedOrNeutered) {
+  export function makeQueryString(zip, maxWeight, minWeight, minPrice, maxPrice, gender, spayedOrNeutered, personalityAttributes) {
     let queryString = '?';
     if(zip) {
         queryString += `zip=${zip}&citySearch=true&`;
@@ -113,6 +113,10 @@ function responseHandler(response) {
     if(spayedOrNeutered) {
         queryString += `spayedOrNeutered=${spayedOrNeutered}&`;
     }
-    
+
+    if(personalityAttributes) {
+        queryString += `personalityAttributes=${personalityAttributes}&personalityAttributesSearchType=and`;
+    }
+
     return queryString;
 }

@@ -27,16 +27,16 @@
                 <input type="radio" name="spayedOrNeutered" value="false" v-model="spayedOrNeutered"> No
             </div>
             <div>Personality Attribues:
-                <input type="checkbox" name='personalityAttributes' value="loving" v-model="personalityAttributes"> loving<br>
-                <input type="checkbox" name='personalityAttributes' value="playful" v-model="personalityAttributes"> playful<br>
-                <input type="checkbox" name='personalityAttributes' value="friendly" v-model="personalityAttributes"> friendly<br>
-                <input type="checkbox" name='personalityAttributes' value="protective" v-model="personalityAttributes"> protective<br>
-                <input type="checkbox" name='personalityAttributes' value="calm" v-model="personalityAttributes"> calm<br>
-                <input type="checkbox" name='personalityAttributes' value="intelligent" v-model="personalityAttributes"> intelligent<br>
-                <input type="checkbox" name='personalityAttributes' value="herder" v-model="personalityAttributes"> herder<br>
-                <input type="checkbox" name='personalityAttributes' value="anxious" v-model="personalityAttributes"> anxious<br>
-                <input type="checkbox" name='personalityAttributes' value="headstrong" v-model="personalityAttributes"> headstrong<br>
-                <input type="checkbox" name='personalityAttributes' value="independent" v-model="personalityAttributes"> independent
+                <input type="checkbox" id="loving"  value="loving" v-model="checkedAttributes"> loving<br>
+                <input type="checkbox" id="playful"  value="playful" v-model="checkedAttributes"> playful<br>
+                <input type="checkbox" id="friendly"  value="friendly" v-model="checkedAttributes"> friendly<br>
+                <input type="checkbox" id="protective"  value="protective" v-model="checkedAttributes"> protective<br>
+                <input type="checkbox" id="calm"  value="calm" v-model="checkedAttributes"> calm<br>
+                <input type="checkbox" id="intelligent"  value="intelligent" v-model="checkedAttributes"> intelligent<br>
+                <input type="checkbox" id="herder"  value="herder" v-model="checkedAttributes"> herder<br>
+                <input type="checkbox" id="anxious"  value="anxious" v-model="checkedAttributes"> anxious<br>
+                <input type="checkbox" id="headstrong"  value="headstrong" v-model="checkedAttributes"> headstrong<br>
+                <input type="checkbox" id="independent" value="independent" v-model="checkedAttributes"> independent
             </div>
 
             <button>Submit</button>
@@ -48,12 +48,17 @@
                 v-for="dog in dogs"
                 :key="dog._id">
             
-            <h4>Name: {{ dog.name }}</h4>
-            <p>Description: {{ dog.description }}</p>
-            <p>Weight: {{ dog.weight }}</p>
-            <p>Price: {{ dog.price }}</p>
-            <p>Gender: {{ dog.gender }}</p>
-            <p>Spayed or Neutered: {{ dog.spayedOrNeutered }}</p>       
+                <h4>Name: {{ dog.name }}</h4>
+                <p>Description: {{ dog.description }}</p>
+                <p>Weight: {{ dog.weight }}</p>
+                <p>Price: {{ dog.price }}</p>
+                <p>Gender: {{ dog.gender }}</p>
+                <p>Spayed or Neutered: {{ dog.spayedOrNeutered }}</p>
+                <p>Personality Attributes:</p> 
+                <p v-for="personalityAttribute in dog.personalityAttributes"
+                    :key="personalityAttribute">
+                    {{ personalityAttribute }}
+                </p>
             </div>
         </div>
         
@@ -76,11 +81,12 @@ export default {
             gender: '',
             spayedOrNeutered: null,
             dogs: null,
+            checkedAttributes: []
         };
     },
     methods: {
         handleSubmit() {
-            const queryString = makeQueryString(this.zip, this.maxWeight, this.minWeight, this.minPrice, this.maxPrice, this.gender, this.spayedOrNeutered);
+            const queryString = makeQueryString(this.zip, this.maxWeight, this.minWeight, this.minPrice, this.maxPrice, this.gender, this.spayedOrNeutered, this.checkedAttributes);
             dogQuery(queryString)
             .then(matchingDogs => {
                 this.dogs = matchingDogs;
