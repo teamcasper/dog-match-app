@@ -162,4 +162,11 @@ nav {
 body {
   background: #FFF;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+}
 </style>

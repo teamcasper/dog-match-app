@@ -89,3 +89,12 @@ export default {
 };
 
 </script>
+
+<style>
+
+form {
+  height: 475px;
+}
+
+
+</style>
